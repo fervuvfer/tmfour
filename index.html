@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>TM4: Sfidamastro</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
@@ -20,11 +20,31 @@
             text-align: center;
             overflow: hidden;
         }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            padding: 5vw;
+            box-sizing: border-box;
+        }
+        .main-image {
+            max-width: 750px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .begin-button {
+            background-color: white;
+            color: black;
+            font-family: 'Special Elite', cursive;
+            font-size: 2vh;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
         .text-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             overflow: hidden;
             display: none;
         }
@@ -61,50 +81,7 @@
         .video-container video {
             max-height: 100%;
             max-width: 100%;
-        }
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .play-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            color: white;
-            text-align: center;
-        }
-        .play-button .icon {
-            width: 0; 
-            height: 0; 
-            border-left: 30px solid white;
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-        }
-        .play-button .text {
-            font-family: 'Special Elite', cursive;
-            margin-top: 10px;
-            font-size: 2vh;
-        }
-        .begin-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            color: black;
-            font-family: 'Special Elite', cursive;
-            font-size: 2vh;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+            position: relative;
         }
         @keyframes blink-caret {
             from, to { background-color: transparent; }
@@ -114,7 +91,10 @@
 </head>
 <body>
 
-<button class="begin-button" id="beginButton">Begin</button>
+<div class="main-content" id="mainContent">
+    <img src="assets/TM_Menu.png" class="main-image" alt="Taskmaster Menu">
+    <button class="begin-button" id="beginButton">Begin</button>
+</div>
 
 <div class="text-container" id="textContainer">
     <div><span class="sentence" id="sentence1"></span><span class="cursor" id="cursor1"></span></div>
@@ -128,12 +108,6 @@
 
 <div class="video-container" id="videoContainer">
     <video id="myVideo" src="https://res.cloudinary.com/dguxcqekj/video/upload/v1721657722/cameo_2_copy_lefgxn.mp4" controls></video>
-    <div class="video-overlay" id="videoOverlay">
-        <div class="play-button" id="playButton" onclick="playVideo()">
-            <div class="icon"></div>
-            <div class="text">Play</div>
-        </div>
-    </div>
 </div>
 
 <audio id="backgroundMusic" src="assets/tmsong.mp3"></audio>
@@ -166,7 +140,7 @@
             document.getElementById(`cursor${index + 1}`).style.display = 'inline-block';
             gsap.to(`#sentence${index + 1}`, {
                 duration: duration,
-                text: {value: sentences[index]},
+                text: { value: sentences[index] },
                 delay: index > 0 ? 1 : 0.5,
                 onComplete: () => {
                     document.getElementById(`cursor${index + 1}`).style.display = 'none';
@@ -174,12 +148,14 @@
                 }
             });
         } else {
-            gsap.to(".text-container", {duration: 1, opacity: 0});
-            gsap.to(".video-container", {
-                duration: 1,
-                display: "flex",
-                opacity: 1,
-            });
+            gsap.to(".text-container", { duration: 1, opacity: 0, onComplete: () => {
+                document.getElementById('textContainer').style.display = 'none';
+                gsap.to(".video-container", {
+                    duration: 1,
+                    display: "flex",
+                    opacity: 1,
+                });
+            }});
         }
     };
 
@@ -190,20 +166,8 @@
         });
     };
 
-    const playVideo = () => {
-        const video = document.getElementById('myVideo');
-        const playButton = document.getElementById('playButton');
-        const overlay = document.getElementById('videoOverlay');
-        video.play().then(() => {
-            playButton.style.display = 'none';
-            overlay.style.display = 'none';
-        }).catch((error) => {
-            console.error('Error playing video:', error);
-        });
-    };
-
     document.getElementById('beginButton').addEventListener('click', () => {
-        document.getElementById('beginButton').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'none';
         document.getElementById('textContainer').style.display = 'block';
         playAudio();
         typeSentence(0);
