@@ -9,23 +9,18 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('assets/homepage-tile.png') repeat center center fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            box-sizing: border-box;
+            background: url('https://res.cloudinary.com/dguxcqekj/image/upload/v1721734184/homepage-tile_sv4o6a.png') repeat center center fixed;
             font-family: 'Special Elite', cursive;
             color: white;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
-        .main-content {
+        .main-content, .text-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            height: 100vh;
             width: 100%;
             padding: 5vw;
             box-sizing: border-box;
@@ -35,17 +30,16 @@
             width: 100%;
             margin-bottom: 30px;
         }
-        .begin-button {
+        button {
             background-color: white;
             color: black;
             font-family: 'Special Elite', cursive;
             font-size: 2vh;
-            padding: 10px 20px;
+            padding: 10px 20px 7px 20px;
             border: none;
             cursor: pointer;
         }
         .text-container {
-            overflow: hidden;
             display: none;
         }
         .sentence {
@@ -83,6 +77,34 @@
             max-width: 100%;
             position: relative;
         }
+        #actions {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        button.hollow {
+            background-color: transparent;
+            color: #ffffff;
+            font-family: 'Special Elite', cursive;
+            font-size: 2vh;
+            padding: 10px 20px 7px 20px;
+            margin: 10px 0;
+            border: 1px solid #ffffff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        #actions a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Special Elite', cursive;
+            font-size: 2vh;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: underline;
+        }
         @keyframes blink-caret {
             from, to { background-color: transparent; }
             50% { background-color: white; }
@@ -92,7 +114,8 @@
 <body>
 
 <div class="main-content" id="mainContent">
-    <img src="assets/TM_Menu.png" class="main-image" alt="Taskmaster Menu">
+    <h2>Sfidamastro</h2>
+    <img src="https://res.cloudinary.com/dguxcqekj/image/upload/v1721734542/TM_Menu_ncxx0g.png" class="main-image" alt="Taskmaster Menu">
     <button class="begin-button" id="beginButton">Begin</button>
 </div>
 
@@ -110,6 +133,15 @@
     <video id="myVideo" src="https://res.cloudinary.com/dguxcqekj/video/upload/v1721657722/cameo_2_copy_lefgxn.mp4" controls></video>
 </div>
 
+<section id="actions">
+    <button href="registration.html">Sign me up!</button>
+    <button class="hollow">No thanks.</button>
+    <a href="#">I'm maybe in.. but want to ask a question first.</a>
+    <h5>Info</h5>
+    <a href="#">What the hell is taskmaster? (FAQ)</a>
+    <a href="#">Previous Taskmaster videos</a>
+</section>
+
 <audio id="backgroundMusic" src="assets/tmsong.mp3"></audio>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -121,13 +153,13 @@
     gsap.registerPlugin(TextPlugin);
 
     const sentences = [
-        "Ciao Bella",
+        "Ciao bella!",
         "Tom the Taskmaster is out of retirement",
-        "You're invited to compete in:",
+        "You're invited to compete in",
         "TM4: Sfidamastro",
-        "Are you in?",
-        "Good Luck, TM.",
-        "Your time begins now."
+        "Your time begins now.",
+        "Good Luck, TM."
+        
     ];
 
     const totalDuration = 30; // total time for all animations in seconds
@@ -154,6 +186,9 @@
                     duration: 1,
                     display: "flex",
                     opacity: 1,
+                    onComplete: () => {
+                        document.getElementById('actions').style.display = 'flex';
+                    }
                 });
             }});
         }
@@ -168,7 +203,7 @@
 
     document.getElementById('beginButton').addEventListener('click', () => {
         document.getElementById('mainContent').style.display = 'none';
-        document.getElementById('textContainer').style.display = 'block';
+        document.getElementById('textContainer').style.display = 'flex';
         playAudio();
         typeSentence(0);
     });
