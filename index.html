@@ -85,7 +85,16 @@
             text-align: center;
             width: 100%;
         }
-        button.hollow {
+        #actions button.solid {
+            background-color: white;
+            color: black;
+            font-family: 'Special Elite', cursive;
+            font-size: 2vh;
+            padding: 10px 20px 7px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #actions button.hollow {
             background-color: transparent;
             color: #ffffff;
             font-family: 'Special Elite', cursive;
@@ -109,14 +118,74 @@
             from, to { background-color: transparent; }
             50% { background-color: white; }
         }
+        .accordion {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: left;
+}
+
+.accordion .card,
+.accordion .card-header,
+.accordion .card-body,
+.accordion .btn-link {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+#actions .accordion .card,
+.accordion {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.accordion .card,
+.accordion .card-header,
+.accordion .card-body,
+.accordion .btn-link {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+#actions .accordion .card,
+#actions .accordion .card-header,
+#actions .accordion .card-body,
+#actions .accordion .btn-link {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+
+}
+#actions .accordion .card-header .btn-link{
+font-size: 1.5rem;
+font-weight: 700;
+}
+#actions .accordion .card-body,
+#actions .accordion .btn-link {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+.card iframe{
+    margin-bottom: 30px;
+}
+
+    
     </style>
 </head>
 <body>
 
 <div class="main-content" id="mainContent">
-    <h2>Sfidamastro</h2>
     <img src="https://res.cloudinary.com/dguxcqekj/image/upload/v1721734542/TM_Menu_ncxx0g.png" class="main-image" alt="Taskmaster Menu">
-    <button class="begin-button" id="beginButton">Begin</button>
+    <button class="begin-button" id="beginButton">Enter</button>
 </div>
 
 <div class="text-container" id="textContainer">
@@ -136,10 +205,75 @@
 <section id="actions">
     <button href="registration.html">Sign me up!</button>
     <button class="hollow">No thanks.</button>
-    <a href="#">I'm maybe in.. but want to ask a question first.</a>
-    <h5>Info</h5>
-    <a href="#">What the hell is taskmaster? (FAQ)</a>
-    <a href="#">Previous Taskmaster videos</a>
+    
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        I'm maybe in... but want to ask a question first.
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    No problem. Contact Tom the Taskmaster directly. +61 403 515 789 or email tom@tomross.work
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        What the hell is taskmaster?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                    Taskmaster is based on a british comedy show where you complete odd tasks and get judged by the Taskmaster.
+                    It's no huge commitment and will be fun to be apart of! 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Can I just watch?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    Of course, but it would be more fun to participate. You'd be fulfilling a request from the wedding couple!
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Can I watch some of the previous ones? 
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                        <h6>TM3: Diss Track</h6>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/U48ITVCv_WM?si=Kp0wpbppYPtYmkii&amp;start=9728" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h6>TM3: Word for Word (2 Mintute Movies) </h6>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/U48ITVCv_WM?si=3c8jSgcow1n3H90E&amp;start=7852" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h6>TM2: Ducks in the Pond</h6>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/gz2Tu3xOYvU?si=Xgc0Yst31v6CK8xW&amp;start=2008" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h6>TM1: Recreate the TikTok</h6>
+                        <p>0:00 - 0:36</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tj_xhiObzKE?si=I0gxh7D5TA-hyLdn&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <audio id="backgroundMusic" src="assets/tmsong.mp3"></audio>
@@ -159,10 +293,9 @@
         "TM4: Sfidamastro",
         "Your time begins now.",
         "Good Luck, TM."
-        
     ];
 
-    const totalDuration = 30; // total time for all animations in seconds
+    const totalDuration = 24; // total time for all animations in seconds
     const typingSpeed = totalDuration / sentences.join("").length; // consistent speed for all sentences
 
     const typeSentence = (index) => {
@@ -180,7 +313,7 @@
                 }
             });
         } else {
-            gsap.to(".text-container", { duration: 1, opacity: 0, onComplete: () => {
+            gsap.to(".text-container", { duration: 1, opacity: 0, delay: 2, onComplete: () => {
                 document.getElementById('textContainer').style.display = 'none';
                 gsap.to(".video-container", {
                     duration: 1,
