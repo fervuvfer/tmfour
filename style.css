@@ -129,8 +129,10 @@ body {
     height: 90vh;
     padding: 2vh 0 0 0;
     box-sizing: border-box;
-    /* Remove opacity: 0 to make it visible */
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .video-container video {
@@ -138,6 +140,26 @@ body {
     max-width: 100%;
     position: relative;
     object-fit: contain; /* Ensures video scales without stretching */
+    z-index: 50;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the thumbnail scales to match the video size */
 }
 
 .main-content-registration, .text-container-registration {
