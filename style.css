@@ -9,7 +9,6 @@ body {
 
 }
 
-
 .main-content, .text-container {
     display: flex;
     flex-direction: column;
@@ -36,7 +35,7 @@ button {
 }
 
 .sentence {
-    font-size: 1.8vh;
+    font-size: 0.9rem;
     margin: 0;
     padding: 0;
     display: inline-block;
@@ -103,6 +102,10 @@ button {
 
 
 /* Registration */ 
+
+.registration-intro{
+    margin-top: 35px;
+}
 
 .video-container {
     width: 100%;
