@@ -34,12 +34,17 @@ button {
     border: none;
     cursor: pointer;
 }
+
 .sentence {
+    font-size: 1.8vh;
+    margin: 0;
+    padding: 0;
     display: inline-block;
+    white-space: nowrap;
 }
 .cursor {
     display: inline-block;
-    width: 10px;
+    width: 2px;
     height: 2rem;
     background-color: white;
     animation: blink 1s infinite;
