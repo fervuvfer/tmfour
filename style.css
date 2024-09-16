@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('https://res.cloudinary.com/dguxcqekj/image/upload/v1721734184/homepage-tile_sv4o6a.png') repeat fixed;
+    font-family: 'Special Elite', cursive;
+    color: #ffffff;
+    text-align: center;
+    overflow-x: hidden;
+
+}
+
+.video-container {
+    width: 100%;
+    height: 90vh;
+    padding: 2vh 0 0 0;
+    box-sizing: border-box;
+    opacity: 0;
+    position: relative;
+}
+.video-container video {
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.main-content, .text-container {
+    height: auto;
+    width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+}
+
+/* Registration */ 
+
+/* General Styling */
+#actions {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.signUp {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.signUp:hover {
+    background-color: #ffffff;
+}
+
+/* Content Section Styling */
+.content-section {
+    text-align: left;
+    margin-top: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.content-section p {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 20px;
+    font-family: arial !important;
+}
+
+/* Responsive YouTube Embed */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for Text Links and Headers */
+h6 {
+    font-size: 1rem;
+    color: white;
+    margin-top: 10px;
+}
