@@ -9,28 +9,6 @@ body {
 
 }
 
-.video-container {
-    width: 100%;
-    height: 90vh;
-    padding: 2vh 0 0 0;
-    box-sizing: border-box;
-    /* Remove opacity: 0 to make it visible */
-    position: relative;
-}
-
-.video-container video {
-    max-height: 100%;
-    max-width: 100%;
-    position: relative;
-    object-fit: contain; /* Ensures video scales without stretching */
-}
-
-.main-content-registration, .text-container-registration {
-    height: auto;
-    width: 100%;
-    padding: 5vw;
-    box-sizing: border-box;
-}
 
 .main-content, .text-container {
     display: flex;
@@ -74,24 +52,8 @@ button {
     color: #ffffff;
     font-size: 2.5rem;
 }
-.video-container {
-    width: 100%;
-    height: 90vh;
-    padding: 2vh 0 0 0;
-    box-sizing: border-box;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    position: relative;
-}
-.video-container video {
-    max-height: 100%;
-    max-width: 100%;
-    position: relative;
-}
+
 #actions {
-    display: none;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
@@ -137,6 +99,30 @@ button {
 
 /* Registration */ 
 
+.video-container {
+    width: 100%;
+    height: 90vh;
+    padding: 2vh 0 0 0;
+    box-sizing: border-box;
+    /* Remove opacity: 0 to make it visible */
+    position: relative;
+}
+
+.video-container video {
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    object-fit: contain; /* Ensures video scales without stretching */
+}
+
+.main-content-registration, .text-container-registration {
+    height: auto;
+    width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+}
+
+
 /* General Styling */
 #actions {
     text-align: center;
@@ -158,6 +144,8 @@ button {
 }
 
 /* Content Section Styling */
+
+
 .content-section {
     text-align: left;
     margin-top: 20px;
@@ -181,7 +169,7 @@ button {
 }
 
 /* Responsive YouTube Embed */
-.video-container {
+.content-section .video-container {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
@@ -190,7 +178,7 @@ button {
     margin-bottom: 20px;
 }
 
-.video-container iframe {
+.content-section .video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
